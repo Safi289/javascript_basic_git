@@ -159,20 +159,182 @@
 
 //getters and setters
 
-const person = {
-    firstName: 'Safi',
-    lastName: 'Sahid',
-    // fullName: function() {},
-    get fullName() {
-        return `${person.firstName} ${person.lastName}`;
-    },
-    set fullName(value) {
-        const parts = value.split(' ');
-        this.firstName = parts[0];
-        this.lastName = parts[1];
-    }
-}
+// const person = {
+//     firstName: 'Safi',
+//     lastName: 'Sahid',
+//     // fullName: function() {},
+//     get fullName() {
+//         return `${person.firstName} ${person.lastName}`;
+//     },
+//     set fullName(value) {
+//         const parts = value.split(' ');
+//         this.firstName = parts[0];
+//         this.lastName = parts[1];
+//     }
+// }
 
-person.fullName = 'Kamal Hasan'
+// person.fullName = 'Kamal Hasan'
 
-console.log(person);
+// console.log(person);
+
+// value vs reference type
+// let x = { value: 10};
+// let y = x;
+
+// x.value = 20;
+
+// let obj = { value: 10 };
+// function increase(obj) {
+//     obj.value++;
+// }
+
+// increase(obj);
+// console.log(obj);
+
+// scope (local vs global)
+// function start() {
+//     const message = 'Hi';
+
+//     if (true) {
+//         const another = 'Bye';
+//     }
+
+//     for (let i = 0; i < 5; i++) {
+//         console.log(i);
+//     }
+//     console.log(i);
+// }
+
+// start();
+// const color = 'Red';
+// function start() {
+//     const message = 'Hi';
+//     const color = 'blue';
+//     console.log(color);
+// }
+
+// function stop() {
+//     const message = 'Bye';
+// }
+
+// start();
+
+// let vs var vs const
+// function start() {
+//     for (let i = 0; i < 5; i++) {
+//         console.log(i);
+//     }
+
+//     for (var i = 0; i < 5; i++) {
+//         if (true) {
+//             var color = 'red';
+//         }
+//         console.log(i);
+//         console.log(color);
+//     }
+//     console.log(i);
+// }
+
+// start();
+
+// var color = 'red';
+// let age = 20;
+
+// function sayHi() {
+//     console.log('hi');
+// }
+
+//cloning an object
+
+// const circle  = {
+//     radius: 1,
+//     draw() {
+//         console.log('draw');
+//     } 
+// };
+
+// // const another = {};
+// // for (let key in circle) {
+// //     another[key] = circle[key];
+// // }
+
+// const another = Object.assign({}, circle);
+
+// const another = { ...circle };
+
+// console.log(another);
+
+// this keyword
+// const video = {
+//     title: 'a',
+//     tags: ['a', 'b', 'c'],
+//     // play() {
+//     //     console.log(this);
+//     // }
+//     showTags() {
+//         this.tags.forEach(function(tag){
+//             console.log(this, tag);
+//         }, this)
+//     }
+// };
+
+// video.showTags();
+
+// // video.stop = function() {
+// //     console.log(this);
+// // }
+
+// // function playVideo() {
+// //     console.log(this);
+// // }
+
+// function Video(title) {
+//     this.title = title;
+//     console.log(this);
+// }
+
+// const v = new Video('b');
+// // video.play();
+// // video.stop();
+// // playVideo();
+
+
+//template literals
+// const message =
+//  'This is My\n' +
+//  '\'first\' message';
+
+// const another = 
+//  `hi safi,
+//  how are you\?`;
+
+//array filters
+// const numbers = [1, -1, 2, 3];
+// const filtered = numbers.filter(n => n >= 0);
+
+// console.log(filtered);
+
+
+//array mapping
+
+// const numbers = [1, -1, 2, 3];
+// const filtered = numbers.filter(n => n >= 0);
+// const items = filtered.map(n => '<li>' + n + '</li>');
+// const html = '<ul>' + items.join('') + '</ul>';
+// console.log(html);
+
+
+//array reduce
+const numbers = [1, -1, 2, 3];
+
+// let sum = 0;
+// for (let n of numbers)
+//     sum += n;
+
+// console.log(sum);
+
+const sum = numbers.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+}, 0);
+
+console.log(sum);
